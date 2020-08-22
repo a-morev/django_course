@@ -1,0 +1,209 @@
+body {
+    background-color: #f8f8f8;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.header {
+    height: 70px;
+    background-color: #F5DEB3;
+}
+
+.menu {
+    padding-top: 22px;
+    padding-right: 25px;
+    text-align: right;    
+}
+
+.menu > li {    
+    overflow: hidden;
+    padding-left: 25px;    
+    list-style-type: none;
+    display: inline;        
+}
+
+.menu li a {
+    color: #4d4d4d;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.header img[alt="label"] {        
+    outline: 1px solid #8b4513;
+    float: left;
+    display: block;
+    margin-top: 3px;
+    margin-left: 1px;
+}
+
+.menu li a:hover {
+    color: #ff4500;
+}
+
+.footer {
+    height: 30px;
+    width: 100%;
+    background-color: #D3D3D3;
+    text-align: right;
+    padding-top: 5px;
+    padding-right: 25px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+}
+
+figure {
+    background: #D2B48C; /* Цвет фона */
+    padding: 10px; /* Поля вокруг */
+    width: 300px; /* Ширина */
+    float: left; /* Блоки выстраиваются по горизонтали */
+    margin: 0 10px 10px 0; /* Отступы */
+    text-align: center; /* Выравнивание по центру */
+}
+
+figcaption a {
+    color: #2F4F4F;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.text_header {
+    color: black;
+    font-size: 18px;
+    font-weight: 400;
+    background-color: #eaeaea;    
+    overflow: hidden;
+    text-align: center;
+}
+
+a img {    
+    outline: 2px solid #414a4c;
+    border-radius: 50%;
+    margin-right: 15px;
+    margin-bottom: 20px;
+    float: left;
+}
+
+a img:hover {
+    outline-style: none;    
+}
+
+a[target="_blank"] + .text_header {
+    display: inline-block;
+    width: 765px;       
+}
+
+.short_description {
+    color: #707070;
+    font-size: 14px;
+    font-style: italic;
+    line-height: 16px;
+    display: inline-block;      
+}
+
+.short_description:first-letter, .full_description:first-letter {
+    font-family: Comic Sans MS;
+    font-size: 2em;
+}
+
+.full_description {
+    color: #484343;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+}
+
+.product_characteristics {
+    color: #4d4d4d;
+    list-style-position: inside;
+    list-style-image: url(../img/marker.png);
+    font-family: fantasy;
+    font-size: 15px;
+    padding-left: 10px;    
+}
+
+#button_buy {
+    text-align: center;
+}
+
+.buy {
+  font-weight: 700;    
+  background: rgb(64,199,129);  
+  height:30px;
+  width: 100px;
+  outline: 1px solid #000;
+  cursor:pointer;    
+}
+
+.buy:hover {
+    background: rgb(53, 167, 110);
+    outline: 1px solid #000;
+}
+
+.buy:focus {
+    background:#9ACD32;    
+    outline: 1px solid #696969;
+}
+
+.buy:active {
+  background: rgb(33,147,90);
+  box-shadow: 0 3px rgb(33,147,90) inset;
+}
+
+#name, #mail, #theme, #text {
+    color: #293133;
+    font-weight: 900;
+    padding: 5px;
+}
+
+input[placeholder="Имя"], input[placeholder="Email"], input[placeholder="Тема"] {
+    height: 25px;
+    width: 250px;
+    background-color: beige;
+    color: black;
+    line-height: 25px;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    padding: 0 10px;
+}
+
+.comment textarea {    
+    background-color: beige;
+    margin: 3px;
+    width: 318px;
+    padding: 5px;
+    height: 160px;
+    font-family: Gothic fantasy;
+    font-size: 1.1em;
+}
+
+input[placeholder="Email"]:focus {
+    background-color: #dcdcdc;
+    color: #800000;
+}
+
+input[placeholder="Имя"]:focus, input[placeholder="Тема"]:focus, .comment textarea:focus {
+    text-transform: capitalize;
+}
+
+.box_cured_sausage {
+    border: 3px solid #414a4c;
+    width: 400px;
+    height: 100px;
+    border-collapse: collapse;
+}
+
+.box_cured_sausage tr td {
+    border: 1px solid #414a4c;
+    text-align: center;
+    color: #778899;
+    font-size: 16px;    
+}
+

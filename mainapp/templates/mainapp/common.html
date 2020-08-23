@@ -1,11 +1,12 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <title>{{ page_title }}</title>
+    <title>{{ page_title|title }}</title>
     {% block css %}
-        <link rel="stylesheet" href="/static/css/style.css">
+        <link rel="stylesheet" href="{% static 'css/style.css'%}">
     {% endblock %}
     {% block js %}
     {% endblock %}
@@ -16,7 +17,7 @@
 {% endblock %}
 
 <hr style="clear: both">
-<div class="footer"><small>&copy;&nbsp;Все права защищены</small></div>
+<div class="footer"><small>&copy;&nbsp;Все права защищены {% now "Y" %}</small></div>
 
 </body>
 </html>

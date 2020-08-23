@@ -1,8 +1,10 @@
-<div class="header"><img src="/static/img/logo.jpg" alt="label">
+{% load static %}
+
+<div class="header"><img src="{% static 'img/logo.jpg' %}" alt="label">
     <ul class="menu">
-        <li><a href="/">Главная</a></li>
-        <li><a href="/catalog/">Каталог</a></li>
-        <li><a href="/contacts/">Контакты</a></li>
+        <li><a href="{% url 'main:index' %}">Главная</a></li>
+        <li><a href="{% url 'main:catalog' %}">Каталог</a></li>
+        <li><a href="{% url 'main:contacts' %}">Контакты</a></li>
     </ul>
     <a href="#" class="search"></a>
     <a href="#" class="basket"></a>

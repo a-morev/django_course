@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{{ page_title }}</title>
+    {% block css %}
+        <link rel="stylesheet" href="/static/css/style.css">
+    {% endblock %}
+    {% block js %}
+    {% endblock %}
+</head>
+
+<body>
+{% block content %}
+{% endblock %}
+
+<hr style="clear: both">
+<div class="footer"><small>&copy;&nbsp;Все права защищены</small></div>
+
+</body>
+</html>

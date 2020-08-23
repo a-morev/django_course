@@ -1,30 +1,15 @@
-<!DOCTYPE html>
-<html>
+{% extends 'mainapp/common.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Главная</title>
-    <link rel="stylesheet" href="/static/css/style.css">
-</head>
-
-<body>
-<div class="container">
-    <div class="header"><img src="/static/img/logo.jpg" alt="label">
-        <ul class="menu">
-            <li><a href="/">Главная</a></li>
-            <li><a href="/catalog/">Каталог</a></li>
-            <li><a href="/contacts/">Контакты</a></li>
-        </ul>
+{% block content %}
+    <div class="container">
+        {% include 'mainapp/includes/inc__menu.html' %}
+        <hr>
+        <h1 style="text-align: center">Интернет-магазин &laquo;Домашняя колбаса&raquo;</h1>
+        <p> Безупречный вкус и&nbsp;качество колбас нашего магазина рождаются в&nbsp;постоянном совершенствовании
+            рецептур,
+            безграничном уважении к&nbsp;покупателям и&nbsp;любви к&nbsp;собственной продукции, которой мы&nbsp;доверяем
+            и&nbsp;выбираем
+            для себя. Мы&nbsp;делаем все, чтобы люди получали радость и&nbsp;удовольствие от&nbsp;каждой покупки свежих
+            колбас интернет-магазина &laquo;Домашняя колбаса&raquo; и&nbsp;ежедневно наслаждались их&nbsp;вкусом. </p>
     </div>
-    <hr>
-    <h1 style="text-align: center">Интернет-магазин &laquo;Домашняя колбаса&raquo;</h1>
-    <p> Безупречный вкус и&nbsp;качество колбас нашего магазина рождаются в&nbsp;постоянном совершенствовании рецептур,
-        безграничном уважении к&nbsp;покупателям и&nbsp;любви к&nbsp;собственной продукции, которой мы&nbsp;доверяем и&nbsp;выбираем
-        для себя. Мы&nbsp;делаем все, чтобы люди получали радость и&nbsp;удовольствие от&nbsp;каждой покупки свежих
-        колбас интернет-магазина &laquo;Домашняя колбаса&raquo; и&nbsp;ежедневно наслаждались их&nbsp;вкусом. </p>
-</div>
-<hr>
-<div class="footer"><small>&copy;&nbsp;Все права защищены</small></div>
-</body>
-
-</html>
+{% endblock %}

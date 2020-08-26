@@ -8,9 +8,9 @@
     <h1>Каталог</h1>
     <div class="links clearfix">
         <ul class="links-menu">
-            <li><a href="#" class="active">все</a></li>
-            <li><a href="#">сыровяленые колбасы</a></li>
-            <li><a href="#">вареные колбасы</a></li>
+            {% for category in categories %}
+                <li><a href="#">{{ category.name }}</a></li>
+            {% endfor %}
         </ul>
     </div>
     <figure><img src="{% static 'img/sv_kolbasa.jpg' %}" width="300" height="200" alt="sv_kolbasa">

@@ -6,6 +6,13 @@
         <li><a href="{% url 'main:catalog' %}">Каталог</a></li>
         <li><a href="{% url 'main:contacts' %}">Контакты</a></li>
     </ul>
+
+    {% if user.is_authenticated %}
+        <a href="{% url 'auth:logout' %}">выход</a>
+    {% else %}
+        <a href="{% url 'auth:login' %}">вход</a>
+    {% endif %}
+
     <a href="#" class="search"></a>
     <a href="#" class="basket"></a>
 </div>

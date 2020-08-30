@@ -28,7 +28,8 @@ def login(request):
 
 
 def logout(request):
-    pass
+    auth.logout(request)
+    return HttpResponseRedirect(reverse('main:index'))
 
 
 def register(request):

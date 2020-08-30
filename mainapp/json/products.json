@@ -1,0 +1,47 @@
+[
+    {
+        "category": "сыровяленая колбаса",
+        "name": "сальчичон",
+        "image": "products_images/sv_kolbasa.jpg",
+        "short_desc": "",
+        "description": "",
+        "price": "2989.5",
+        "quantity": "17"
+    },
+    {
+        "category": "сыровяленая колбаса",
+        "name": "испанская с перцем",
+        "image": "",
+        "short_desc": "",
+        "description": "",
+        "price": "1298.2",
+        "quantity": "21"
+    },
+    {
+        "category": "сыровяленая колбаса",
+        "name": "валенсия мраморная",
+        "image": "",
+        "short_desc": "использованы премиальные материалы",
+        "description": "для тех, кто стремится к лучшему",
+        "price": "1390.99",
+        "quantity": "7"
+    },
+    {
+        "category": "вареная колбаса",
+        "name": "докторская",
+        "image": "products_images/var_kolbasa.jpg",
+        "short_desc": "",
+        "description": "",
+        "price": "895.25",
+        "quantity": "27"
+    },
+    {
+        "category": "вареная колбаса",
+        "name": "любительская",
+        "image": "",
+        "short_desc": "",
+        "description": "",
+        "price": "587.41",
+        "quantity": "9"
+    }
+]

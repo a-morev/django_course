@@ -3,4 +3,5 @@ from django.db import models
 
 
 class ShopClient(AbstractUser):
-    pass
+    avatar = models.ImageField(upload_to='users_avatars', blank=True)
+    age = models.PositiveIntegerField(verbose_name='возраст', null=True)

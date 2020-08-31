@@ -5,13 +5,18 @@
         <li><a href="{% url 'main:index' %}">Главная</a></li>
         <li><a href="{% url 'main:catalog' %}">Каталог</a></li>
         <li><a href="{% url 'main:contacts' %}">Контакты</a></li>
+        {% if user.is_authenticated %}
+            <li><a href="{% url 'auth:profile' %}">
+                {{ user.first_name|default:'Пользователь' }}
+            </a></li>
+        {% endif %}
+        {% if user.is_authenticated %}
+            <li><a href="{% url 'auth:logout' %}">Выход</a></li>
+        {% else %}
+            <li><a href="{% url 'auth:login' %}">Вход</a></li>
+        {% endif %}
     </ul>
 
-    {% if user.is_authenticated %}
-        <a href="{% url 'auth:logout' %}">выход</a>
-    {% else %}
-        <a href="{% url 'auth:login' %}">вход</a>
-    {% endif %}
 
     <a href="#" class="search"></a>
     <a href="#" class="basket"></a>

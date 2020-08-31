@@ -1,0 +1,14 @@
+{% extends 'authapp/common.html' %}
+
+{% block content %}
+    <div class="h2 text-center head">
+        Регистрация пользователя
+    </div>
+    <form class="form-horizontal" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input class="form-control" type="submit" value="зарегистрироваться">
+    </form>
+    <a href="{% url 'main:index' %}"
+       class="btn btn-round form-control">на главную</a>
+{% endblock %}

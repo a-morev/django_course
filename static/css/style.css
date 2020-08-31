@@ -221,7 +221,7 @@ input[placeholder="Имя"]:focus, input[placeholder="Тема"]:focus, .comment
 }
 
 .links-menu {
-	margin:	27px auto 0px;
+	margin:	27px auto 0;
 	position: absolute;
 }
 

@@ -3,11 +3,10 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 
-from authapp.forms import ShopLoginForm
+from authapp.forms import ShopLoginForm, ShopRegistrationForm, ShopProfileForm
 
 
 def login(request):
-    form = None
     if request.method == 'POST':
         form = ShopLoginForm(data=request.POST)
         if form.is_valid():
@@ -17,7 +16,7 @@ def login(request):
             if user and user.is_active:
                 auth.login(request, user)
                 return HttpResponseRedirect(reverse('main:index'))
-    elif request.method == 'GET':
+    else:
         form = ShopLoginForm()
 
     context = {
@@ -33,4 +32,31 @@ def logout(request):
 
 
 def register(request):
-    pass
+    if request.method == 'POST':
+        user = ShopRegistrationForm(request.POST, request.FILES)
+        if user.is_valid():
+            user.save()
+            return HttpResponseRedirect(reverse('auth:login'))
+    else:
+        user = ShopRegistrationForm()
+
+    context = {
+        'page_title': 'регистрация',
+        'form': user,
+    }
+    return render(request, 'authapp/register.html', context)
+
+
+def profile(request):
+    if request.method == 'POST':
+        user = ShopProfileForm(request.POST, request.FILES, instance=request.user)
+        if user.is_valid():
+            user.save()
+            return HttpResponseRedirect(reverse('main:index'))
+    else:
+        user = ShopProfileForm(instance=request.user)  # обязательно добавить при редактировании
+    context = {
+        'page_title': 'профиль',
+        'form': user,
+    }
+    return render(request, 'authapp/profile.html', context)

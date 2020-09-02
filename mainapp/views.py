@@ -21,8 +21,12 @@ def catalog(request):
 
 
 def category(request, pk):
-    item = get_object_or_404(ProductCategory, pk=pk)
-    products = Product.objects.filter(category=item)
+    if pk == 0:
+        item = {'pk': 0, 'name': 'все'}
+        products = Product.objects.all()
+    else:
+        item = get_object_or_404(ProductCategory, pk=pk)
+        products = Product.objects.filter(category=item)
 
     context = {
         'page_title': 'каталог',

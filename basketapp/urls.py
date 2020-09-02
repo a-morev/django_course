@@ -13,19 +13,14 @@ Including another URL conf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.conf.urls.static import static
-from django.contrib import admin
-from django.urls import path, include
 
-from shop import settings
+from django.urls import path
+import basketapp.views as basketapp
+
+# обязательно добавить
+app_name = 'basketapp'
 
 urlpatterns = [
-    path('', include('mainapp.urls', namespace='main')),
-    path('auth/', include('authapp.urls', namespace='auth')),
-    path('basket/', include('basketapp.urls', namespace='basket')),
+    path('', basketapp.index, name='index'),
 
-    path('admin/', admin.site.urls),
 ]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

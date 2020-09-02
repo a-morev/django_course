@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
-from mainapp.models import ProductCategory
+from mainapp.models import ProductCategory, Product
 
 
 def index(request):
@@ -18,6 +18,19 @@ def catalog(request):
         'categories': categories,
     }
     return render(request, 'mainapp/catalog.html', context)
+
+
+def category(request, pk):
+    item = get_object_or_404(ProductCategory, pk=pk)
+    products = Product.objects.filter(category=item)
+
+    context = {
+        'page_title': 'каталог',
+        'categories': ProductCategory.objects.all(),
+        'item': item,
+        'products': products,
+    }
+    return render(request, 'mainapp/category.html', context)
 
 
 def contacts(request):

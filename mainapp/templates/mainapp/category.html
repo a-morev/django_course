@@ -1,0 +1,19 @@
+{% extends 'mainapp/common.html' %}
+
+{% load static %}
+
+{% block content %}
+    {% include 'mainapp/includes/inc__menu.html' %}
+    <hr>
+    <h1>Каталог</h1>
+    {% include 'mainapp/includes/inc__catalog_menu.html' %}
+    <h2>Категория &mdash; {{ item.name|capfirst }}</h2>
+    {% for product in products %}
+        <a href="{#% url 'basket:add_product' pk=product.pk %#}">
+            <figure><img src="/media/{{ product.image }}" width="300" height="200" alt="">
+                <figcaption><a href="#">{{ product.name }}</a></figcaption>
+            </figure>
+        </a>
+    {% endfor %}
+
+{% endblock %}

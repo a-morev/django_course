@@ -26,6 +26,12 @@ class ShopRegistrationForm(UserCreationForm):
             field.widget.attrs['class'] = 'form-control'
             field.help_text = ''
 
+    def clean_age(self):
+        years_old = self.cleaned_data['age']
+        if years_old < 14:
+            raise df.ValidationError('Попробуйте зарегистрироваться, когда будете старше!')
+        return years_old
+
 
 class ShopProfileForm(UserChangeForm):
     class Meta:
@@ -39,3 +45,9 @@ class ShopProfileForm(UserChangeForm):
             field.help_text = ''
             if field_name == 'password':
                 field.widget = df.HiddenInput()
+
+    def clean_age(self):
+        years_old = self.cleaned_data['age']
+        if years_old < 14:
+            raise df.ValidationError('Попробуйте зарегистрироваться, когда будете старше!')
+        return years_old

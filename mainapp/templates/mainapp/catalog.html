@@ -6,13 +6,7 @@
     {% include 'mainapp/includes/inc__menu.html' %}
     <hr>
     <h1>Каталог</h1>
-    <div class="links clearfix">
-        <ul class="links-menu">
-            {% for category in categories %}
-                <li><a href="#">{{ category.name }}</a></li>
-            {% endfor %}
-        </ul>
-    </div>
+    {% include 'mainapp/includes/inc__catalog_menu.html' %}
     <figure><img src="{% static 'img/sv_kolbasa.jpg' %}" width="300" height="200" alt="sv_kolbasa">
         <figcaption><a href="#">Колбаса сыровяленая &quot;Сальчичон&quot;</a></figcaption>
     </figure>

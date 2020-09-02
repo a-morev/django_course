@@ -15,9 +15,11 @@
         {% else %}
             <li><a href="{% url 'auth:login' %}">Вход</a></li>
         {% endif %}
+        <li><a href="#" class="search">Поиск&nbsp;&#8981;</a></li>
+        {% if user.is_authenticated %}
+            <li><a href="{% url 'basket:index' %}" class="basket">Корзина&nbsp;&#8487;</a></li>
+        {% endif %}
     </ul>
 
 
-    <a href="#" class="search"></a>
-    <a href="#" class="basket"></a>
 </div>

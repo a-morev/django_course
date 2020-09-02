@@ -131,3 +131,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # constant model of user
 AUTH_USER_MODEL = 'authapp.ShopClient'
+
+# ссылка на перевод страницы по умолчанию
+LOGIN_URL = '/auth/login/'

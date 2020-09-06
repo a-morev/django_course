@@ -17,7 +17,11 @@
         {% endif %}
         <li><a href="#" class="search">Поиск&nbsp;&#8981;</a></li>
         {% if user.is_authenticated %}
-            <li><a href="{% url 'basket:index' %}" class="basket">Корзина&nbsp;&#8487;</a></li>
+            <li>
+                <a href="{% url 'basket:index' %}" class="basket">
+                    Корзина&#8487; {{ user.basket_cost|floatformat:0 }} &#8381; ({{ user.basket_total_quantity }} шт)
+                </a>
+            </li>
         {% endif %}
     </ul>
 

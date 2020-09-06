@@ -4,27 +4,26 @@
 {% block content %}
     <div class="basket_list">
         {% if basket_items %}
-            {% for value in basket_items %}
+            {% for item in basket_items %}
                 <div class="basket_record">
-                    <img src="/media/{{ value.product.image }}" alt="{{ value.product.short_desc }}">
-                    <span class="category_name">{{ value.product.category.name }}</span>
-                    <span class="product_name">{{ value.product.name }}</span>
-                    <span class="product_price">{{ value.product.price }}&nbsp;&#8381;</span>
+                    <img src="/media/{{ item.product.image }}" alt="{{ item.product.short_desc }}">
+                    <span class="category_name">{{ item.product.category.name }}</span>
+                    <span class="product_name">{{ item.product.name }}</span>
+                    <span class="product_price">{{ item.product.price }}&nbsp;&#8381;</span>
                     <label>
-                        <input type="number" name="{{ value.pk }}" min="0" max="{{ value.product.quantity }}"
-                               value="{{ value.quantity }}">
-                        {# <span class="product_cost">{{ value.product_cost }}&nbspруб</span>#}
+                        <input type="number" name="{{ item.pk }}" min="0" max="{{ item.product.quantity }}"
+                               value="{{ item.quantity }}">
+                        {# <span class="product_cost">{{ item.product_cost }}&nbspруб</span>#}
                     </label>
 
-                    {% comment %}<a href="{% url 'basket:delete' value.pk %}" class="btn btn-round">
-                        убрать из корзины
-                    </a>{% endcomment %}
+                    <a href="{% url 'basket:delete' item.pk %}" class="btn btn-round">
+                        убрать из корзины</a>
                 </div>
             {% endfor %}
 
             <div class="basket_summary">
-                {% comment %}В корзине {{ user.basket_total_quantity }} товаров общей стоимостью
-                {{ user.basket_cost }} руб{% endcomment %}
+                В корзине {{ user.basket_total_quantity }} товаров общей стоимостью
+                {{ user.basket_cost }} &#8381;
             </div>
         {% else %}
             <h4>В корзине нет товаров</h4>

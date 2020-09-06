@@ -9,9 +9,9 @@
     {% include 'mainapp/includes/inc__catalog_menu.html' %}
     <h2>Категория &mdash; {{ item.name|capfirst }}</h2>
     {% for product in products %}
-        <a href="{% url 'basket:add' pk=product.pk %}">
+        <a href="{% url 'main:product_page' pk=product.pk %}">
             <figure><img src="/media/{{ product.image }}" width="300" height="200" alt="">
-                <figcaption><a href="#">{{ product.name }}</a></figcaption>
+                <figcaption><a href="{% url 'main:product_page' pk=1 %}">{{ product.name }}</a></figcaption>
             </figure>
         </a>
     {% endfor %}

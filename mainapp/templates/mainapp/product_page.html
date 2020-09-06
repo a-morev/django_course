@@ -1,0 +1,30 @@
+{% extends 'mainapp/common.html' %}
+
+{% load static %}
+
+{% block content %}
+    {% include 'mainapp/includes/inc__menu.html' %}
+    <hr>
+    {% include 'mainapp/includes/inc__catalog_menu.html' %}
+    <h1 style="font-family: cursive; text-align: center;">{{ product.name }}</h1>
+    <a href="/media/{{ product.image }}" target="_blank">
+        <img src="/media/{{ product.image }}" width="350" height="233" alt="{{ product.name }}">
+    </a>
+
+    <p class="price"> {{ product.price }} <span>&#8381;</span></p>
+
+    <h3 class="text_header">Описание товара</h3>
+    <p class="short_description">{{ product.short_desc }}</p>
+
+    <h3 class="text_header">Характеристики товара</h3>
+    <p class="full_description">{{ product.description }}</p>
+
+    <form>
+        <p id="button_buy">
+            <a href="{% url 'basket:add' product.pk %}">
+                <input type="button" value="Купить" class="buy">
+            </a>
+        </p>
+    </form>
+{% endblock %}
+

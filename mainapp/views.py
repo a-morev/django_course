@@ -20,6 +20,15 @@ def catalog(request):
     return render(request, 'mainapp/catalog.html', context)
 
 
+def product_page(request, pk):
+    context = {
+        'page_title': 'товар',
+        'categories': ProductCategory.objects.all(),
+        'product': get_object_or_404(Product, pk=pk),
+    }
+    return render(request, 'mainapp/product_page.html', context)
+
+
 def category(request, pk):
     if pk == 0:
         item = {'pk': 0, 'name': 'все'}

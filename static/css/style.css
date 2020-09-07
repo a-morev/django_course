@@ -32,6 +32,12 @@ body {
     text-decoration: none;
 }
 
+.menu .active {
+	color: #212121;
+	font-weight: 700;
+	border-bottom: 3px solid #212121;
+}
+
 .header img[alt="label"] {        
     outline: 1px solid #8b4513;
     float: left;

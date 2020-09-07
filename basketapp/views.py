@@ -12,7 +12,7 @@ def index(request):
     basket_items = BasketItem.objects.filter(user=request.user)
     context = {
         'page_title': 'корзина',
-        'categories': basket_items,
+        'basket_items': basket_items,
     }
     return render(request, 'basketapp/index.html', context)
 

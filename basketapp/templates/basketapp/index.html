@@ -13,8 +13,8 @@
                     <label>
                         <input type="number" name="{{ item.pk }}" min="0" max="{{ item.product.quantity }}"
                                value="{{ item.quantity }}">
-                        {# <span class="product_cost">{{ item.product_cost }}&nbspруб</span>#}
                     </label>
+                    {# <span class="product_cost">{{ item.product_cost }}&nbspруб</span>#}
 
                     <a href="{% url 'basket:delete' item.pk %}" class="btn btn-round">
                         убрать из корзины</a>

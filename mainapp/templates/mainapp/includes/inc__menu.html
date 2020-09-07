@@ -2,9 +2,24 @@
 
 <div class="header"><img src="{% static 'img/logo.jpg' %}" alt="label">
     <ul class="menu">
-        <li><a href="{% url 'main:index' %}">Главная</a></li>
-        <li><a href="{% url 'main:catalog' %}">Каталог</a></li>
-        <li><a href="{% url 'main:contacts' %}">Контакты</a></li>
+        <li>
+            <a href="{% url 'main:index' %}"
+               class="{% if request.resolver_match.url_name == 'index' %}active{% endif %}">
+                Главная
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'main:catalog' %}"
+               class="{% if request.resolver_match.url_name == 'catalog' or request.resolver_match.url_name == 'category' %}active{% endif %}">
+                Каталог
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'main:contacts' %}"
+               class="{% if request.resolver_match.url_name == 'contacts' %}active{% endif %}">
+                Контакты
+            </a>
+        </li>
         {% if user.is_authenticated %}
             <li><a href="{% url 'auth:profile' %}">
                 {{ user.first_name|default:'Пользователь' }}

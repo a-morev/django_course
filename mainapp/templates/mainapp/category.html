@@ -11,7 +11,7 @@
     {% for product in products %}
         <a href="{% url 'main:product_page' pk=product.pk %}">
             <figure><img src="/media/{{ product.image }}" width="300" height="200" alt="">
-                <figcaption><a href="{% url 'main:product_page' pk=1 %}">{{ product.name }}</a></figcaption>
+                <figcaption><a href="{% url 'main:product_page' pk=product.pk %}">{{ product.name }}</a></figcaption>
             </figure>
         </a>
     {% endfor %}

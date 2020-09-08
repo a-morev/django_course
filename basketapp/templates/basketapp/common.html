@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <title>
@@ -15,7 +15,7 @@
     {% block js %}
         <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
         <script src="{% static 'js/bootstrap.min.js' %}"></script>
-        <script src="{#% static 'js/basket_scripts.js' %#}"></script>
+        <script src="{% static 'js/basket_scripts.js' %}"></script>
     {% endblock %}
 </head>
 <body>

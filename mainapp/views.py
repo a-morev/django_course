@@ -1,6 +1,13 @@
+from random import choice
+
 from django.shortcuts import render, get_object_or_404
 
 from mainapp.models import ProductCategory, Product
+
+
+def get_hot_product():
+    products = Product.objects.all()
+    return choice(products)
 
 
 def index(request):
@@ -12,10 +19,12 @@ def index(request):
 
 def catalog(request):
     categories = ProductCategory.objects.all()
+    hot_product = get_hot_product()
 
     context = {
         'page_title': 'каталог',
         'categories': categories,
+        'hot_product': hot_product,
     }
     return render(request, 'mainapp/catalog.html', context)
 

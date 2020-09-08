@@ -113,7 +113,7 @@ a[target="_blank"] + .text_header {
 }
 
 .short_description:first-letter, .full_description:first-letter {
-    font-family: "Comic Sans MS";
+    font-family: "Comic Sans MS", sans-serif;
     font-size: 2em;
 }
 
@@ -125,14 +125,7 @@ a[target="_blank"] + .text_header {
     text-align: left;
 }
 
-.product_characteristics {
-    color: #4d4d4d;
-    list-style-position: inside;
-    list-style-image: url(../img/marker.png);
-    font-family: fantasy;
-    font-size: 15px;
-    padding-left: 10px;    
-}
+
 
 #button_buy {
     text-align: center;
@@ -403,4 +396,51 @@ input[placeholder="Имя"]:focus, input[placeholder="Тема"]:focus, .comment
     margin-left: 50px;
     margin-bottom: 15px;
     color: #555;
+}
+
+.description {
+	width: 535px;
+	float: right;
+	padding-left: 35px
+}
+
+.description .red {
+	text-transform: uppercase;
+	color: #e53935;
+	font-size: 18px;
+	font-weight: 700;
+	text-align: center;
+	letter-spacing: 1px;
+	line-height: 17px;
+	margin-top: 23px;
+	margin-bottom: 36px;
+}
+
+.description .price {
+	color:  #212121;
+	font-size: 72px;
+	font-weight: 300;
+	line-height: 48px;
+	text-align: center;
+}
+
+.description .price span {
+	color:  #212121;
+	font-size: 36px;
+	font-weight: 300;
+	line-height: 48px;
+	text-align: center;
+}
+
+.description-text {
+	margin-top: 50px;
+	color:  #212121;
+	font-size: 16px;
+	font-weight: 300;
+	line-height: 24px;
+	text-align: left;
+}
+
+.description-text p {
+	margin-bottom: 0.5em;
 }

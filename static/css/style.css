@@ -444,3 +444,372 @@ input[placeholder="Имя"]:focus, input[placeholder="Тема"]:focus, .comment
 .description-text p {
 	margin-bottom: 0.5em;
 }
+
+.admin_container .h2 {
+    margin-top: 10px;
+}
+
+.admin_menu {
+    display: block;
+    left: 15px;
+    top: 20px;
+    height: 40px;
+    width: 100%;
+}
+
+.admin_menu ul.menu{
+    display: block;
+    float: none;
+    width: 550px;
+    height: 50px;
+    margin: auto;
+    color: #555;
+}
+
+.users_list {
+    margin-left: 150px;
+}
+
+.users_list a {
+    color: #555;
+    text-decoration: none;
+}
+
+.users_list .new_user {
+    margin-left: 190px;
+}
+
+.users_list button {
+    border: 1px solid #eaeaea;
+    border-radius: 5px;
+    height: 30px;
+    margin: 5px auto;
+    padding: 0 15px;
+}
+
+.user_record {
+    height: 125px;
+    margin: 15px auto;
+    position: relative;
+}
+
+.user_record.not_active {
+    opacity: 0.5;
+}
+
+.user_record img {
+    display: block;
+    float: left;
+    height: 125px;
+    border-radius: 25px;
+}
+
+.user_record .user_name {
+    display: block;
+    float: left;
+    margin-top: 15px;
+    margin-left: 25px;
+    width: 175px;
+}
+
+.user_record .user_name a {
+    color: #555;
+}
+
+.user_record .user_name p {
+    /*font-weight: bold;*/
+    margin: 10px auto;
+}
+
+.user_record .user_email {
+    display: block;
+    float: left;
+    margin-top: 40px;
+    margin-left: 25px;
+    width: 175px;
+}
+
+.user_record .user_age {
+    display: block;
+    float: left;
+    margin-top: 40px;
+    margin-left: 25px;
+    width: 45px;
+}
+
+.user_record .user_role {
+    display: block;
+    float: left;
+    margin-top: 15px;
+    margin-left: 25px;
+    width: 125px;
+}
+
+.user_record .user_lastlogin {
+    display: block;
+    float: left;
+    margin-top: 40px;
+    margin-left: 25px;
+    width: 175px;
+}
+
+.user_delete {
+    margin: 50px auto;
+    width: 600px;
+    font-size: 150%;
+}
+
+.user_delete .btn {
+    display: block;
+    float:left;
+    margin: 25px;
+    width: 150px;
+    color: #111;
+}
+
+.user_delete a {
+    color: #111;
+    text-decoration: none;
+}
+
+.categories_list {
+    margin-left: 150px;
+}
+
+.categories_list .new_category {
+    margin-left: 200px;
+}
+
+.categories_list button {
+    border: 1px solid #eaeaea;
+    border-radius: 5px;
+    height: 30px;
+    margin: 5px auto;
+    padding: 0 15px;
+}
+
+.categories_list a {
+    color: #555;
+    text-decoration: none;
+}
+
+.category_record {
+    height: 125px;
+    margin: 15px auto;
+    position: relative;
+}
+
+.category_record.not_active {
+    opacity: 0.5;
+}
+
+.categories_list .category_name {
+    display: block;
+    float: left;
+    margin-top: 15px;
+    margin-left: 25px;
+    width: 150px;
+    font-size: 150%;
+}
+
+.category_record .category_actions {
+    display: block;
+    float: left;
+    margin-top: 0;
+    margin-left: 25px;
+    width: 175px;
+}
+
+.category_record .category_desc {
+    display: block;
+    float: left;
+    margin-top: 0;
+    margin-left: 25px;
+    width: 300px;
+}
+
+.new_category_form {
+    margin: 0 auto;
+    width: 600px;
+}
+
+.user_delete {
+    margin: 50px auto;
+    width: 600px;
+    font-size: 150%;
+}
+
+.user_delete .btn {
+    display: block;
+    float:left;
+    margin: 25px;
+    width: 150px;
+    color: #111;
+}
+
+.user_delete a {
+    color: #111;
+    text-decoration: none;
+}
+
+.products_list .title {
+    margin: 20px auto;
+    height: 50px;
+    float: none;
+}
+
+.products_list .title h2 {
+    margin-top: 0;
+    float: left;
+}
+
+.products_list .title .paginator{
+    display: block;
+    position: relative;
+    left: 75px;
+    top: 15px;
+    margin-left: 25px;
+    color: #555;
+    float: left;
+}
+
+.paginator a, .paginator a:visited {
+    color: #555;
+    text-decoration: none;
+}
+
+.products_list .title .price_bounds{
+    display: block;
+    position: relative;
+    left: 25px;
+    top: 15px;
+    margin-left: 25px;
+    text-decoration: none;
+    color: #555;
+    float: left;
+}
+
+.product_record {
+    height: 125px;
+    margin: 15px auto;
+    position: relative;
+}
+
+.product_record.not_active {
+    opacity: 0.5;
+}
+
+.product_record .product_name {
+    display: block;
+    float: left;
+    margin-top: 25px;
+    margin-left: 25px;
+    width: 250px;
+    font-size: 150%;
+}
+
+.product_record .product_actions {
+    display: block;
+    float: left;
+    margin-top: 0;
+    margin-left: 25px;
+    width: 135px;
+}
+
+.product_record .product_desc {
+    display: block;
+    float: left;
+    margin-top: 15px;
+    margin-left: 25px;
+    width: 350px;
+}
+
+.product_record .summary {
+    display: block;
+    float: left;
+    margin-top: 15px;
+    margin-left: 25px;
+    width: 100px;
+}
+
+.product_record img {
+    display: block;
+    float: left;
+    height: 125px;
+    width: 125px;
+    border-radius: 25px;
+}
+
+.new_category_form {
+    margin: 0 auto;
+    width: 600px;
+}
+
+.paginator{
+    display: block;
+    left: 75px;
+    top: 15px;
+    margin-left: 25px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #555;
+}
+
+.paginator a, .paginator a:visited {
+    color: #555;
+    text-decoration: none;
+}
+
+.product_read {
+    margin: 0 auto;
+    width: 1000px;
+    height: 600px;
+}
+
+.product_read img {
+    display: block;
+    float:left;
+    margin-top: 25px;
+    border-radius: 25px;
+}
+
+.product_read .product_name {
+    display: block;
+    margin: 0 auto;
+    width: 350px;
+}
+
+.product_read .summary {
+    display: block;
+    float: left;
+    margin-left: 35px;
+    margin-top: 30px;
+    width: 150px;
+}
+
+.product_read .product_desc {
+    display: block;
+    float: left;
+    margin-left: 35px;
+    margin-top: 45px;
+    width: 400px;
+}
+
+.product_read strong {
+    font-size: 150%;
+    margin-left: 15px;
+}
+
+.product_read button {
+    border: 1px solid #eaeaea;
+    border-radius: 5px;
+    height: 30px;
+    margin: 0 auto;
+    width: 135px;
+    padding: 0 15px;
+}
+
+.product_read a {
+    color: #555;
+    text-decoration: none;
+}

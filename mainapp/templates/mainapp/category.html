@@ -8,6 +8,19 @@
     <h1>Каталог</h1>
     {% include 'mainapp/includes/inc__catalog_menu.html' %}
     <h2>Категория &mdash; {{ item.name|capfirst }}</h2>
+    <div class="paginator">
+        {% if products.has_previous %}
+            <a href="{% url 'mainapp:category_page' pk=item.pk page=products.previous_page_number %}">
+                &#9668;
+            </a>
+        {% endif %}
+        <span class="current">страница {{ products.number }} из {{ products.paginator.num_pages }}</span>
+        {% if products.has_next %}
+            <a href="{% url 'mainapp:category_page' pk=item.pk page=products.next_page_number %}">
+                &#9658;
+            </a>
+        {% endif %}
+    </div>
     {% for product in products %}
         <a href="{% url 'main:product_page' pk=product.pk %}">
             <figure><img src="/media/{{ product.image }}" width="300" height="200" alt="">

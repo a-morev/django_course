@@ -1,14 +1,15 @@
 {% extends 'mainapp/common.html' %}
 
 {% load static %}
+{% load my_tags %}
 
 {% block content %}
     {% include 'mainapp/includes/inc__menu.html' %}
     <hr>
     {% include 'mainapp/includes/inc__catalog_menu.html' %}
     <h1 style="font-family: cursive; text-align: center;">{{ product.name }}</h1>
-    <a href="/media/{{ product.image }}" target="_blank">
-        <img src="/media/{{ product.image }}" width="350" height="233" alt="{{ product.name }}">
+    <a href="{{ product.image|media_folder_products }}" target="_blank">
+        <img src="{{ product.image|media_folder_products }}" width="350" height="233" alt="{{ product.name }}">
     </a>
 
     <p class="price"> {{ product.price }} <span>&#8381;</span></p>
@@ -27,4 +28,3 @@
         </p>
     </form>
 {% endblock %}
-

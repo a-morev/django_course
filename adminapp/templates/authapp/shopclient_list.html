@@ -1,0 +1,49 @@
+{% extends 'adminapp/common.html' %}
+
+{% load static %}
+{% load my_tags %}
+
+{% block content %}
+    <div class="users_list">
+        <a href="{% url 'my_admin:user_create' %}" class="btn btn-primary new_user">
+            новый пользователь
+        </a>
+        {% for shop_user in object_list %}
+            <div class="user_record {% if not shop_user.is_active %}not_active{% endif %}">
+                <img src="{{ shop_user.avatar|media_folder_users }}" alt="{{ shop_user.username }}">
+                <div class="user_role">
+                    {% if shop_user.is_superuser %}администратор{% else %}пользователь{% endif %}
+                    <a href="{% url 'my_admin:user_update' pk=shop_user.pk %}" class="btn btn-primary">
+                        редактировать
+                    </a>
+                    <a href="{% url 'my_admin:user_delete' pk=shop_user.pk %}" class="btn btn-danger">
+                        удалить
+                    </a>
+                </div>
+                <div class="user_name">
+                    <p><strong>{{ shop_user.username }}</strong></p>
+                    <p>
+                        {% if shop_user.first_name %}
+                            <b>{{ shop_user.first_name|title }}</b>
+                            {% if shop_user.last_name %}
+                                <p>{{ shop_user.last_name|title }}</p>
+                            {% endif %}
+                        {% endif %}
+                    </p>
+                </div>
+                <div class="user_age">
+                    age:<br>
+                    {{ shop_user.age }} лет
+                </div>
+                <div class="user_email">
+                    email:<br>
+                    {{ shop_user.email }}
+                </div>
+                <div class="user_lastlogin">
+                    logged:<br>
+                    {{ shop_user.last_login }}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

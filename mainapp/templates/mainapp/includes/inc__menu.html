@@ -25,6 +25,11 @@
                 {{ user.first_name|default:'Пользователь' }}
             </a></li>
         {% endif %}
+        {% if user.is_superuser %}
+            <li><a href="{% url 'my_admin:index' %}">
+                Админка
+            </a></li>
+        {% endif %}
         {% if user.is_authenticated %}
             <li><a href="{% url 'auth:logout' %}">Выход</a></li>
         {% else %}

@@ -7,6 +7,8 @@ from authapp.forms import ShopLoginForm, ShopRegistrationForm, ShopProfileForm
 
 
 def login(request):
+    redirect_url = request.GET.get('next', None)
+
     if request.method == 'POST':
         form = ShopLoginForm(data=request.POST)
         if form.is_valid():
@@ -14,7 +16,10 @@ def login(request):
             password = request.POST['password']
             user = auth.authenticate(username=username, password=password)
             if user and user.is_active:
+                redirect_url = request.POST.get('redirect_url', None)
                 auth.login(request, user)
+                if redirect_url:
+                    return HttpResponseRedirect(redirect_url)
                 return HttpResponseRedirect(reverse('main:index'))
     else:
         form = ShopLoginForm()
@@ -22,6 +27,7 @@ def login(request):
     context = {
         'page_title': 'аутентификация',
         'form': form,
+        'redirect_url': redirect_url,
     }
     return render(request, 'authapp/login.html', context)
 

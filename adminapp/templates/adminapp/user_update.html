@@ -1,0 +1,19 @@
+{% extends 'adminapp/common.html' %}
+{% load static %}
+
+{% block menu %}
+{% endblock %}
+
+{% block content %}
+    <div class="login">
+        <form class="form-horizontal" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ user_form.as_p }}
+            <input class="form-control" type="submit" value="сохранить">
+        </form>
+        <a href="{% url 'my_admin:index' %}"
+           class="btn btn-primary form-control last">
+            к списку пользователей
+        </a>
+    </div>
+{% endblock %}

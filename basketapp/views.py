@@ -20,6 +20,11 @@ def index(request):
 
 @login_required
 def add(request, pk):
+    if 'login' in request.META.get('HTTP_REFERER'):
+        return HttpResponseRedirect(reverse(
+            'main:product_page',
+            kwargs={'pk': pk}
+        ))
     product = get_object_or_404(Product, pk=pk)
     basket = BasketItem.objects.filter(user=request.user, product=product).first()
 

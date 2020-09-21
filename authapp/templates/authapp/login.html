@@ -1,6 +1,9 @@
 {% extends 'authapp/common.html' %}
 
 {% block content %}
+    {% if 'register' in request.META.HTTP_REFERER %}
+        <span>На Вашу почту отправлено сообщение подтверждения аккаунта</span>
+    {% endif %}
     <div class="h2 text-center head">
         Вход в систему
     </div>

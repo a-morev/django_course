@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+from datetime import timedelta
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -66,6 +68,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'mainapp.context_processors.catalog_menu',
             ],
         },
     },
@@ -135,3 +138,20 @@ AUTH_USER_MODEL = 'authapp.ShopClient'
 
 # ссылка на перевод страницы по умолчанию
 LOGIN_URL = '/auth/login/'
+
+DOMAIN_NAME = 'http://localhost:8000'
+
+USER_EXPIRES_TIMEDELTA = timedelta(hours=48)
+
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = '25'
+EMAIL_HOST_USER = 'django@shop.local'
+EMAIL_HOST_PASSWORD = 'geekbrains'
+EMAIL_USE_SSL = False
+
+# вариант python -m smtpd -n -c DebuggingServer localhost:25
+EMAIL_HOST_USER, EMAIL_HOST_PASSWORD = None, None
+
+# вариант логирования сообщений почты в виде файлов вместо отправки
+# EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+# EMAIL_FILE_PATH = 'tmp/email-messages/'

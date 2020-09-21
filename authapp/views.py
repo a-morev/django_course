@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.urls import reverse
 
 from authapp.forms import ShopLoginForm, ShopRegistrationForm, ShopProfileForm
+from authapp.models import ShopClient
 
 
 def login(request):
@@ -39,16 +40,21 @@ def logout(request):
 
 def register(request):
     if request.method == 'POST':
-        user = ShopRegistrationForm(request.POST, request.FILES)
-        if user.is_valid():
-            user.save()
-            return HttpResponseRedirect(reverse('auth:login'))
+        form = ShopRegistrationForm(request.POST, request.FILES)
+        if form.is_valid():
+            user = form.save()
+            if user.send_verify_mail():
+                print('На Вашу почту отправлено сообщение подтверждения аккаунта')
+                return HttpResponseRedirect(reverse('auth:login'))
+            else:
+                print('Ошибка отправки сообщения')
+                return HttpResponseRedirect(reverse('auth:login'))
     else:
-        user = ShopRegistrationForm()
+        form = ShopRegistrationForm()
 
     context = {
         'page_title': 'регистрация',
-        'form': user,
+        'form': form,
     }
     return render(request, 'authapp/register.html', context)
 
@@ -66,3 +72,19 @@ def profile(request):
         'form': user,
     }
     return render(request, 'authapp/profile.html', context)
+
+
+def verify(request, email, activation_key):
+    try:
+        user = ShopClient.objects.get(email=email)
+        if user.activation_key == activation_key and not user.is_activation_key_expired():
+            user.is_active = True
+            user.save()
+            auth.login(request, user)
+            return render(request, 'authapp/verification.html')
+        else:
+            print(f'Ошибка активации пользователя: {user}')
+            return render(request, 'authapp/verification.html')
+    except Exception as err:
+        print(f'Ошибка активации пользователя: {err.args}')
+        return HttpResponseRedirect(reverse('main'))

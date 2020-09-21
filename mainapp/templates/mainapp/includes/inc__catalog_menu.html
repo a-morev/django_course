@@ -6,7 +6,7 @@
                 все
             </a>
         </li>
-        {% for category in categories %}
+        {% for category in catalog_menu %}
             <li>
                 <a href="{% url 'main:category' pk=category.pk %}"
                    class="{% if request.resolver_match.kwargs.pk|add:0 == category.pk %}active{% endif %} ">

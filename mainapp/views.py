@@ -19,12 +19,10 @@ def index(request):
 
 
 def catalog(request):
-    categories = ProductCategory.objects.all()
     hot_product = get_hot_product()
 
     context = {
         'page_title': 'каталог',
-        'categories': categories,
         'hot_product': hot_product,
     }
     return render(request, 'mainapp/catalog.html', context)
@@ -33,7 +31,6 @@ def catalog(request):
 def product_page(request, pk):
     context = {
         'page_title': 'товар',
-        'categories': ProductCategory.objects.all(),
         'product': get_object_or_404(Product, pk=pk),
     }
     return render(request, 'mainapp/product_page.html', context)
@@ -57,7 +54,6 @@ def category(request, pk, page=1):
 
     context = {
         'page_title': 'каталог',
-        'categories': ProductCategory.objects.all(),
         'item': item,
         'products': products,
     }

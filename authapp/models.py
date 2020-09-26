@@ -1,5 +1,3 @@
-
-
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.urls import reverse
@@ -59,13 +57,3 @@ class ShopClientProfile(models.Model):
     tagline = models.CharField(verbose_name='теги', max_length=128, blank=True)
     aboutMe = models.TextField(verbose_name='о себе', max_length=512, blank=True)
     gender = models.CharField(verbose_name='пол', max_length=1, choices=GENDER_CHOICES, blank=True)
-
-    # @receiver(post_save, sender=ShopClient)
-    # def create_user_profile(sender, instance, created, **kwargs):
-    #     if created:
-    #         ShopClientProfile.objects.create(user=instance)
-    #
-    #
-    # @receiver(post_save, sender=ShopClient)
-    # def save_user_profile(sender, instance, **kwargs):
-    #     instance.shopuserprofile.save()

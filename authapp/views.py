@@ -1,10 +1,12 @@
 from django.contrib import auth
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 
-from authapp.forms import ShopLoginForm, ShopRegistrationForm, ShopProfileForm
-from authapp.models import ShopClient
+from authapp.forms import ShopLoginForm, ShopRegistrationForm, ShopProfileForm, ShopClientProfileEditForm
+from authapp.models import ShopClient, ShopClientProfile
 
 
 def login(request):
@@ -62,14 +64,19 @@ def register(request):
 def profile(request):
     if request.method == 'POST':
         user = ShopProfileForm(request.POST, request.FILES, instance=request.user)
-        if user.is_valid():
+        user_profile = ShopClientProfileEditForm(request.POST, request.FILES,
+                                                 instance=request.user.shopclientprofile)
+        if user.is_valid() and user_profile.is_valid():
             user.save()
+            # user_profile.save() будет сохраняться, т.к. есть сигнал
             return HttpResponseRedirect(reverse('main:index'))
     else:
         user = ShopProfileForm(instance=request.user)  # обязательно добавить при редактировании
+        user_profile = ShopClientProfileEditForm(instance=request.user.shopclientprofile)
     context = {
         'page_title': 'профиль',
         'form': user,
+        'user_profile_form': user_profile,
     }
     return render(request, 'authapp/profile.html', context)
 
@@ -88,3 +95,11 @@ def verify(request, email, activation_key):
     except Exception as err:
         print(f'Ошибка активации пользователя: {err.args}')
         return HttpResponseRedirect(reverse('main'))
+
+
+@receiver(post_save, sender=ShopClient)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        ShopClientProfile.objects.create(user=instance)
+    else:
+        instance.shopclientprofile.save()

@@ -4,7 +4,7 @@ import random
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
 import django.forms as df
 
-from authapp.models import ShopClient
+from authapp.models import ShopClient, ShopClientProfile
 
 
 class ShopLoginForm(AuthenticationForm):
@@ -64,3 +64,14 @@ class ShopProfileForm(UserChangeForm):
         if years_old < 14:
             raise df.ValidationError('Попробуйте зарегистрироваться, когда будете старше!')
         return years_old
+
+
+class ShopClientProfileEditForm(df.ModelForm):
+    class Meta:
+        model = ShopClientProfile
+        fields = ('tagline', 'aboutMe', 'gender')
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'form-control'

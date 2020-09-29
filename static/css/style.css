@@ -1,3 +1,8 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
 body {
     background-color: #f8f8f8;
 }
@@ -15,14 +20,16 @@ body {
 .menu {
     padding-top: 22px;
     padding-right: 25px;
-    text-align: right;    
+    float: right;
+    list-style-type: none;
 }
 
-.menu > li {    
-    overflow: hidden;
-    padding-left: 25px;    
-    list-style-type: none;
-    display: inline-block;
+.menu li {
+    /*overflow: hidden;*/
+    /*padding-left: 25px;    */
+    /*!*list-style-type: none;*!*/
+    /*display: inline-block;*/
+    float: left;
 }
 
 .menu li a {
@@ -30,6 +37,8 @@ body {
     font-size: 16px;
     font-weight: 600;
     text-decoration: none;
+    text-align: right;
+    padding: 10px 13px;
 }
 
 .menu .active {
@@ -41,7 +50,6 @@ body {
 .header img[alt="label"] {        
     outline: 1px solid #8b4513;
     float: left;
-    display: block;
     margin-top: 3px;
     margin-left: 1px;
 }
@@ -87,13 +95,13 @@ figcaption a {
     text-align: center;
 }
 
-a img {
-    outline: 2px solid #414a4c;
-    border-radius: 50%;
-    margin-right: 15px;
-    margin-bottom: 20px;
-    float: left;
-}
+/*a img {*/
+/*    outline: 2px solid #414a4c;*/
+/*    border-radius: 50%;*/
+/*    margin-right: 15px;*/
+/*    margin-bottom: 20px;*/
+/*    float: left;*/
+/*}*/
 
 a img:hover {
     outline-style: none;    

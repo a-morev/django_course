@@ -1,6 +1,6 @@
 {% load static %}
 
-<div class="header"><img src="{% static 'img/logo.jpg' %}" alt="label">
+<div class="header clearfix"><img src="{% static 'img/logo.jpg' %}" alt="label">
     <ul class="menu">
         <li>
             <a href="{% url 'main:index' %}"
@@ -21,9 +21,26 @@
             </a>
         </li>
         {% if user.is_authenticated %}
-            <li><a href="{% url 'auth:profile' %}">
-                {{ user.first_name|default:'Пользователь' }}
-            </a></li>
+            <li>
+                <div class="dropdown">
+                    <a class="dropdown-toggle" href="" data-toggle="dropdown">
+                        {{ user.first_name|default:'Пользователь' }}
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="{% url 'auth:profile' %}">
+                                Мой профиль
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'ordersapp:index' %}">
+                                Мои заказы
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
         {% endif %}
         {% if user.is_superuser %}
             <li><a href="{% url 'my_admin:index' %}">

@@ -21,6 +21,7 @@ import ordersapp.views as ordersapp
 app_name = 'ordersapp'
 
 urlpatterns = [
-    path('', ordersapp.index, name='index'),
+    path('', ordersapp.OrderList.as_view(), name='index'),
+    path('create/', ordersapp.OrderCreate.as_view(), name='order_create'),
 
 ]

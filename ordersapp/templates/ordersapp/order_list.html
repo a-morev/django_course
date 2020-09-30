@@ -1,0 +1,58 @@
+{% extends 'ordersapp/common.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="h2 text-center head">
+        Ваши заказы, {{ user.first_name|default:'пользователь'|title }}
+    </div>
+    <table class="table orders_list">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Создан</th>
+            <th>Обновлен</th>
+            <th>Статус</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in object_list %}
+            <tr>
+                <td class="td1 orders_list">{{ item.pk }}</td>
+                <td>{{ item.created|date:"Y-m-d H:i:s" }}</td>
+                <td>{{ item.updated|date:"Y-m-d H:i:s" }}</td>
+                <td>{{ item.get_status_display }}</td>
+                <td>
+                    <a href="{#% url 'orders:order_read' item.pk %#}">
+                        посмотреть
+                    </a>
+                </td>
+                <td>
+                    {% if item.is_forming %}
+                        <a href="{#% url 'orders:order_update' pk=item.pk %#}">
+                            редактировать
+                        </a>
+                    {% endif %}
+                </td>
+                <td>
+                    {% if item.status == 'F' %}
+                        <a href="{#% url 'orders:order_delete' item.pk %#}">
+                            удалить
+                        </a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{% url 'main:index' %}"
+       class="btn btn-default btn-round">
+        на главную
+    </a>
+
+    <a href="{% url 'orders:order_create' %}"
+       class="btn btn-default btn-round">
+        новый
+    </a>
+
+{% endblock %}

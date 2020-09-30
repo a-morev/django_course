@@ -24,5 +24,6 @@ urlpatterns = [
     path('', ordersapp.OrderList.as_view(), name='index'),
     path('create/', ordersapp.OrderCreate.as_view(), name='order_create'),
     path('update/<int:pk>/', ordersapp.OrderUpdate.as_view(), name='order_update'),
+    path('read/<int:pk>/', ordersapp.OrderDetail.as_view(), name='order_read'),
 
 ]

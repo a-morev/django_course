@@ -1,10 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "ordersapp/common.html" %}
+{% load static %}
+{% load my_tags %}
 
-</body>
-</html>
+{% block content %}
+    {% include 'ordersapp/includes/inc__order_summary.html' %}
+    <div class="basket_list">
+        {% for item in object.orderitems.all %}
+            <div class="basket_record">
+                <img src="{{ item.product.image|media_folder_products }}"
+                     alt="{{ item.product.short_desc }}">
+                <span class="category_name">{{ item.product.category.name }}</span>
+                <span class="product_name">{{ item.product.name }}</span>
+                <span class="product_price">{{ item.product.price }}&nbsp;&#8381;</span>
+                <span class="product_quantity">&#215;&nbsp;{{ item.quantity }} шт.</span>
+                <span class="product_cost"> = {{ item.get_product_cost }}&nbsp;&#8381;</span>
+            </div>
+        {% endfor %}
+    </div>
+    {% include 'ordersapp/includes/inc__order_actions.html' %}
+
+{% endblock %}

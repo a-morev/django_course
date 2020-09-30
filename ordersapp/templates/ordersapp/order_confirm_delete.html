@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'ordersapp/common.html' %}
+{% load static %}
 
-</body>
-</html>
+{% block content %}
+    <div class="category_delete">
+        <div class="h1">Уверены, что хотите удалить?</div>
+        {% include 'ordersapp/includes/inc__order_summary.html' %}
+        <form method="post">
+            {% csrf_token %}
+            <input class="btn btn-danger" type="submit" value="удалить">
+        </form>
+
+        <a href="{% url 'orders:index' %}" class="btn btn-success">отмена</a>
+    </div>
+{% endblock %}

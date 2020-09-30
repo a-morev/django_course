@@ -868,3 +868,22 @@ input[placeholder="Имя"]:focus, input[placeholder="Тема"]:focus, .comment
     /*width: 50px;*/
     text-align: center;
 }
+
+.category_delete {
+    margin: 50px auto;
+    width: 600px;
+    font-size: 150%;
+}
+
+.category_delete .btn {
+    display: block;
+    float:left;
+    margin: 25px;
+    width: 150px;
+    color: #111;
+}
+
+.category_delete a {
+    color: #111;
+    text-decoration: none;
+}

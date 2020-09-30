@@ -102,6 +102,6 @@ class OrderDetail(DetailView):
     model = Order
 
 
-# class OrderDelete(DeleteView):
-#     model = Order
-#     success_url = reverse_lazy('orders:index')
+class OrderDelete(DeleteView):
+    model = Order
+    success_url = reverse_lazy('orders:index')

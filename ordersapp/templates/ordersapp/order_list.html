@@ -28,7 +28,7 @@
                 </td>
                 <td>
                     {% if item.is_forming %}
-                        <a href="{#% url 'orders:order_update' pk=item.pk %#}">
+                        <a href="{% url 'orders:order_update' pk=item.pk %}">
                             редактировать
                         </a>
                     {% endif %}

@@ -6,21 +6,21 @@
     <div class="h4">статус: {{ object.get_status_display }}</div>
     <hr>
     <div class="h4">
-        общее количество товаров: <span class="order_total_quantity">{{ object.get_total_quantity }}</span>
+        общее количество товаров: <span class="order_total_quantity">{{ object.total_quantity }}</span>
     </div>
     <div class="h3">
-        общая стоимость: <span class="order_total_cost">{{ object.get_total_cost }}</span> &#8381;
+        общая стоимость: <span class="order_total_cost">{{ object.total_cost }}</span> &#8381;
     </div>
 {% else %}
     <div class="h2">Новый заказ</div>
     <hr>
     <div class="h4">заказчик: {{ user.last_name }} {{ user.first_name }} </div>
-    {% if basket.0 %}
+    {% if user.basket_cost %}
         <div class="h4">
-            общее количество товаров: <span class="order_total_quantity">{{ basket.0.total_quantity }}</span>
+            общее количество товаров: <span class="order_total_quantity">{{ user.basket_total_quantity }}</span>
         </div>
         <div class="h3">
-            общая стоимость: <span class="order_total_cost">{{ basket.0.total_cost }}</span> &#8381;
+            общая стоимость: <span class="order_total_cost">{{ user.basket_cost }}</span> &#8381;
         </div>
     {% endif %}
 {% endif %}

@@ -332,6 +332,7 @@ input[placeholder="Имя"]:focus, input[placeholder="Тема"]:focus, .comment
 
 .basket_list span.category_name {
     margin-left: 2em;
+    margin-right: 1em;
     width: 5em;
     position: relative;
     display: block;

@@ -1,5 +1,5 @@
-{% if object.status == 'F' %}
-    <a href="{#% url 'orders:order_forming_complete' object.pk %#}"
+{% if object.is_forming %}
+    <a href="{% url 'orders:order_forming_complete' object.pk %}"
        class="btn btn-warning btn-round form-control last">
         купить товар
     </a>

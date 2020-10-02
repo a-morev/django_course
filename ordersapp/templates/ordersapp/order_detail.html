@@ -9,11 +9,11 @@
             <div class="basket_record">
                 <img src="{{ item.product.image|media_folder_products }}"
                      alt="{{ item.product.short_desc }}">
-                <span class="category_name">{{ item.product.category.name }}</span>
                 <span class="product_name">{{ item.product.name }}</span>
+                <span class="category_name">{{ item.product.category.name }}</span>
                 <span class="product_price">{{ item.product.price }}&nbsp;&#8381;</span>
                 <span class="product_quantity">&#215;&nbsp;{{ item.quantity }} шт.</span>
-                <span class="product_cost"> = {{ item.get_product_cost }}&nbsp;&#8381;</span>
+                <span class="product_cost">&sum;&nbsp;{{ item.product_cost }}&nbsp;&#8381;</span>
             </div>
         {% endfor %}
     </div>

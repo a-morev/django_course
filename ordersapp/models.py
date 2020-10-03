@@ -81,7 +81,11 @@ class OrderItem(models.Model):
     def product_cost(self):
         return self.product.price * self.quantity
 
-    def delete(self, using=None, keep_parents=False):
-        self.product.quantity += self.quantity
-        self.product.save()
-        super().delete(using=None, keep_parents=False)
+    # def delete(self, using=None, keep_parents=False):
+    #     self.product.quantity += self.quantity
+    #     self.product.save()
+    #     super().delete(using=None, keep_parents=False)
+
+    @classmethod
+    def get_item(cls, pk):
+        return cls.objects.filter(pk=pk).first()

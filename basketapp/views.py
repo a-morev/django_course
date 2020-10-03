@@ -1,4 +1,6 @@
 from django.contrib.auth.decorators import login_required
+from django.db.models.signals import pre_save, pre_delete
+from django.dispatch import receiver
 from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, get_object_or_404
 from django.template import loader
@@ -6,6 +8,7 @@ from django.urls import reverse
 
 from basketapp.models import BasketItem
 from mainapp.models import Product
+from ordersapp.models import OrderItem
 
 
 @login_required
@@ -61,3 +64,20 @@ def change(request, pk, quantity):
         return JsonResponse({
             'basket_items': basket_items
         })
+
+
+@receiver(pre_save, sender=OrderItem)
+@receiver(pre_save, sender=BasketItem)
+def product_quantity_update_save(sender, update_fields, instance, **kwargs):
+    if instance.pk:
+        instance.product.quantity -= instance.quantity - sender.get_item(instance.pk).quantity
+    else:
+        instance.product.quantity -= instance.quantity
+    instance.product.save()
+
+
+@receiver(pre_delete, sender=OrderItem)
+@receiver(pre_delete, sender=BasketItem)
+def product_quantity_update_delete(sender, instance, **kwargs):
+    instance.product.quantity += instance.quantity
+    instance.product.save()

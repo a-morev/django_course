@@ -79,12 +79,12 @@ window.onload = function () {
         orderSummaryUpdate(priceArr[orderitemNum], deltaQuantity);
     });
 
-    // $('.formset_row').formset({
-    //     addText: 'добавить продукт',
-    //     deleteText: 'удалить',
-    //     prefix: 'orderitems',
-    //     removed: deleteOrderItem
-    // });
+    $('.formset_row').formset({
+        addText: 'выбрать еще колбаски',
+        deleteText: 'удалить',
+        prefix: 'orderitems',
+        removed: deleteOrderItem
+    });
 
     // $orderForm.on('change', 'select', function (event) {
     //     let target = event.target;

@@ -1,3 +1,6 @@
+from urllib.request import urlopen
+
+from django.core.files.base import ContentFile
 from social_core.exceptions import AuthForbidden
 from authapp.models import ShopClientProfile
 
@@ -16,6 +19,11 @@ def save_user_profile(backend, user, response, *args, **kwargs):
 
         if 'aboutMe' in response.keys():
             user.shopclientprofile.aboutMe = response['aboutMe']
+
+        if 'picture' in response.keys():
+            if not user.avatar:
+                url = response['picture']
+                user.avatar.save(f'avatar_{user.username}.jpg', ContentFile(urlopen(url).read()))
 
         if 'ageRange' in response.keys():
             min_age = response['ageRange']['min']

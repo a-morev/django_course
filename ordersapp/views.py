@@ -12,6 +12,9 @@ from ordersapp.models import Order, OrderItem
 class OrderList(ListView):
     model = Order
 
+    def get_queryset(self):
+        return Order.objects.filter(user=self.request.user)
+
 
 class OrderCreate(CreateView):
     model = Order
@@ -113,7 +116,7 @@ class OrderDelete(DeleteView):
     success_url = reverse_lazy('orders:index')
 
 
-def order_forming_complete (request, pk):
+def order_forming_complete(request, pk):
     order = get_object_or_404(Order, pk=pk)
     order.status = Order.SENT_TO_PROCEED
     order.save()

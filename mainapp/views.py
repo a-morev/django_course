@@ -7,7 +7,7 @@ from mainapp.models import ProductCategory, Product
 
 
 def get_hot_product():
-    products = Product.objects.all()
+    products = Product.objects.filter(is_active=True).all()
     return choice(products)
 
 
@@ -36,13 +36,13 @@ def product_page(request, pk):
     return render(request, 'mainapp/product_page.html', context)
 
 
-def category(request, pk, page=1):
+def category(request, pk, page=1):  # категория продукта (каталог)
     if pk == 0:
         item = {'pk': 0, 'name': 'все'}
         products = Product.objects.all()
     else:
         item = get_object_or_404(ProductCategory, pk=pk)
-        products = Product.objects.filter(category=item)
+        products = Product.objects.filter(category=item, is_active=True)
 
     products_paginator = Paginator(products, 3)
     try:

@@ -1,0 +1,12 @@
+[Unit]
+Description=shop daemon
+After=network.target
+
+[Service]
+User=alexey
+Group=www-data
+WorkingDirectory=/home/alexey/shop
+ExecStart=/home/alexey/.local/bin/gunicorn --access-logfile server.logs --workers 2 --bind unix:/home/alexey/shop/shop.sock shop.wsgi
+
+[Install]
+WantedBy=multi-user.target

@@ -13,7 +13,7 @@ from ordersapp.models import OrderItem
 
 @login_required
 def index(request):
-    basket_items = BasketItem.objects.filter(user=request.user)
+    basket_items = BasketItem.objects.select_related('product', 'product__category').filter(user=request.user)
     context = {
         'page_title': 'корзина',
         'basket_items': basket_items,

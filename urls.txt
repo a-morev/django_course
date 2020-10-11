@@ -1,0 +1,14 @@
+http://192.168.1.98/
+http://192.168.1.98/catalog/
+http://192.168.1.98/contacts/
+http://192.168.1.98/category/0/catalog/
+http://192.168.1.98/category/1/catalog/
+http://192.168.1.98/category/2/catalog/
+http://192.168.1.98/category/3/catalog/
+http://192.168.1.98/basket/
+http://192.168.1.98/orders/
+http://192.168.1.98/auth/profile/
+http://192.168.1.98/orders/update/1/
+http://192.168.1.98/orders/update/3/
+http://192.168.1.98/orders/update/4/
+http://192.168.1.98/orders/update/5/

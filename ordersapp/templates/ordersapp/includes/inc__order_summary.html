@@ -5,12 +5,14 @@
     <div class="h4">обновлен: {{ object.updated|date:"Y-m-d H:i:s" }}</div>
     <div class="h4">статус: {{ object.get_status_display }}</div>
     <hr>
-    <div class="h4">
-        общее количество товаров: <span class="order_total_quantity">{{ object.total_quantity }}</span>
-    </div>
-    <div class="h3">
-        общая стоимость: <span class="order_total_cost">{{ object.total_cost }}</span> &#8381;
-    </div>
+    {% with object_summary=object.summary %}
+        <div class="h4">
+            общее количество товаров: <span class="order_total_quantity">{{ object_summary.total_quantity }}</span>
+        </div>
+        <div class="h3">
+            общая стоимость: <span class="order_total_cost">{{ object_summary.total_cost }}</span> &#8381;
+        </div>
+    {% endwith %}
 {% else %}
     <div class="h2">Новый заказ</div>
     <hr>

@@ -1,15 +1,29 @@
 from random import choice
 
+from django.core.cache import cache
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
 
 from mainapp.models import ProductCategory, Product
+from shop import settings
+
+
+def get_products():
+    if settings.LOW_CACHE:
+        key = 'products'
+        products = cache.get(key)
+        if products is None:
+            products = Product.objects.filter(is_active=True, category__is_active=True).select_related('category')
+            cache.set(key, products)
+        return products
+    else:
+        return Product.objects.filter(is_active=True, category__is_active=True).select_related('category')
 
 
 def get_hot_product():
-    products = Product.objects.filter(is_active=True).all()
-    return choice(products)
+    # products = Product.objects.filter(is_active=True).all()
+    return choice(get_products())
 
 
 def index(request):
@@ -40,7 +54,7 @@ def product_page(request, pk):
 def category(request, pk, page=1):  # категория продукта (каталог)
     if pk == 0:
         item = {'pk': 0, 'name': 'все'}
-        products = Product.objects.all()
+        products = get_products()
     else:
         item = get_object_or_404(ProductCategory, pk=pk)
         products = Product.objects.filter(category=item, is_active=True)

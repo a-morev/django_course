@@ -4,12 +4,16 @@ chardet==3.0.4
 cryptography==3.1.1
 defusedxml==0.7.0rc1
 Django==2.2.1
+django-debug-toolbar==3.1.1
+django-debug-toolbar-template-profiler==2.0.1
+django-extensions==3.0.9
 idna==2.10
 oauthlib==3.1.0
 Pillow==7.2.0
 psycopg2-binary==2.8.6
 pycparser==2.20
 PyJWT==1.7.1
+python-memcached==1.59
 python3-openid==3.2.0
 pytz==2020.1
 requests==2.24.0
@@ -19,3 +23,4 @@ social-auth-app-django==4.0.0
 social-auth-core==3.3.3
 sqlparse==0.3.1
 urllib3==1.25.10
+wrapt==1.12.1

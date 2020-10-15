@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import user_passes_test
+from django.db.models import F
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse, reverse_lazy
@@ -126,6 +127,17 @@ class ProductCategoryUpdate(OnlySuperUserMixin, PageTitleMixin, UpdateView):
     success_url = reverse_lazy('my_admin:categories_read')
     form_class = AdminProductCategoryCreateForm  # для отображения стилей в форме
     pk_url_kwarg = 'category_pk'
+
+    def form_valid(self, form):
+        if 'discount' in form.cleaned_data:
+            discount = form.cleaned_data['discount']
+            if discount:
+                # self.object.product_set.update(price=5000)
+                # self.object.product_set.update(is_active=False)
+                self.object.product_set.update(price=F('price') * (1 - discount / 100))
+                # db_profile_by_type(self.model, 'UPDATE', connection.queries)
+
+        return super().form_valid(form)
 
 
 class ProductCategoryDelete(OnlySuperUserMixin, PageTitleMixin, DeleteView):

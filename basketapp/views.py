@@ -39,7 +39,7 @@ def add(request, pk):
     if basket.pk:
         basket.quantity = F('quantity') + 1
     basket.save()
-    db_profile_by_type(basket, 'UPDATE', connection.queries)
+    # db_profile_by_type(basket, 'UPDATE', connection.queries)
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 

@@ -4,3 +4,6 @@
 
 3 - ok, скрин 1;
 
+4 - ok, скрин 2 (conditional-expressions)
+
+5 -

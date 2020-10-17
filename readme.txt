@@ -4,6 +4,8 @@
 
 3 - ok, скрин 1;
 
-4 - ok, скрин 2 (conditional-expressions)
+4 - ok, скрин 2 (conditional-expressions);
 
-5 -
+5 - Smoke test проведен для приложения mainapp, скрин 3;
+
+6 -

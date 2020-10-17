@@ -21,7 +21,7 @@ class ShopLoginForm(AuthenticationForm):
 class ShopRegistrationForm(UserCreationForm):
     class Meta:
         model = ShopClient
-        fields = ('username', 'first_name', 'email', 'password1', 'password2')
+        fields = ('username', 'first_name', 'email', 'password1', 'password2', 'age')
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

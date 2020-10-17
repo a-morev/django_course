@@ -57,7 +57,7 @@ MIDDLEWARE = [
 ]
 
 # только для dev-server
-if DEBUG:
+if False and DEBUG:
     INSTALLED_APPS.extend([
         'debug_toolbar',
         'template_profiler_panel',
